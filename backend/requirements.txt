@@ -1,0 +1,16 @@
+requests
+html2text
+bs4
+langchain
+langchain-core
+langchain-text-splitters
+langchain-fireworks
+langchain-community
+chromadb
+langchain-chroma
+langchain-huggingface
+python-dotenv
+langchain-groq
+fastapi
+uvicorn
+sentence-transformers
