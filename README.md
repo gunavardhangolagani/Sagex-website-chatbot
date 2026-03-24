@@ -2,6 +2,25 @@
 
 Sagex Website Chatbot is an intelligent application that processes website data to provide highly accurate, context-aware answers to user queries. The application utilizes a custom intent classifier and local vector storage to instantly retrieve relevant document chunks and generate precise responses based on the crawled website content.
 
+## 🚀 Features
+
+- 🔍 Context aware Q&A using RAG
+- 🌐 Website content understanding (multi page)
+- ⚡ Fast retrieval using vector database (ChromaDB)
+- 🤖 LLM-powered responses 
+- 🔗 Navigation friendly answers with relevant links
+
+## Tech Stack
+### Backend
+- FastAPI
+- Langchain
+- ChromaDB (Vector Store)
+
+### Frontend
+- React (Vite)
+- NodeJS
+
+
 ## Getting Started
 
 To run the application, follow these steps:
