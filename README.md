@@ -11,6 +11,10 @@ To run the application, follow these steps:
    ```bash
    git clone git@github.com:gunavardhangolagani/Sagex-website-chatbot.git
    ```
+   or
+   ```bash
+   git clone https://github.com/gunavardhangolagani/Sagex-website-chatbot.git
+   ```
 2. Navigate to the project directory:
 
     ```bash
