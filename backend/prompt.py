@@ -5,7 +5,6 @@ from langchain_core.prompts import (
     HumanMessagePromptTemplate
 )
 
-# New system prompt focused on professional representation and conversational pivoting
 system_prompt = """
 You are the Virtual Representative for Sagex.io. You speak on behalf of the team and our CEO. Your goal is to be a helpful, elite technology consultant who represents our 20+ years of expertise.
 
