@@ -26,9 +26,6 @@ const App = () => {
     },
   ]);
 
-  // =========================
-  // Suggestion Click Handler
-  // =========================
   const handleSuggestionClick = (text) => {
     setShowSuggestions(false);
 
@@ -47,9 +44,7 @@ const App = () => {
     }, 100);
   };
 
-  // =========================
-  // AI Response (BACKEND CALL)
-  // =========================
+
 const generateBotResponse = async (history) => {
     const updateHistory = (text, sourceUrl = "", isError = false) => {
       setChatHistory((prev) => [
@@ -79,9 +74,7 @@ const generateBotResponse = async (history) => {
     }
   };
 
-  // =========================
-  // Auto Scroll
-  // =========================
+  
   useEffect(() => {
     if (chatBodyRef.current) {
       chatBodyRef.current.scrollTo({
@@ -94,7 +87,6 @@ const generateBotResponse = async (history) => {
   return (
     <div className={`container ${showChatbot ? "show-chatbot" : ""}`}>
 
-      {/* Toggle Button */}
       <button
         onClick={() => setShowChatbot((prev) => !prev)}
         id="chatbot-toggler"
@@ -103,10 +95,8 @@ const generateBotResponse = async (history) => {
         <span className="material-symbols-rounded">close</span>
       </button>
 
-      {/* Chatbot */}
       <div className="chatbot-popup">
 
-        {/* Header */}
         <div className="chat-header">
           <div className="header-info">
             <ChatbotIcon />
@@ -121,10 +111,8 @@ const generateBotResponse = async (history) => {
           </button>
         </div>
 
-        {/* Chat Body */}
         <div ref={chatBodyRef} className="chat-body">
 
-          {/* Greeting */}
           <div className="message bot-message">
             <ChatbotIcon />
             <div>
@@ -150,14 +138,12 @@ const generateBotResponse = async (history) => {
             </div>
           </div>
 
-          {/* Chat Messages */}
           {chatHistory.map((chat, index) => (
             <ChatMessage key={index} chat={chat} />
           ))}
 
         </div>
 
-        {/* Footer */}
         <div className="chat-footer">
           <ChatForm
             chatHistory={chatHistory}
