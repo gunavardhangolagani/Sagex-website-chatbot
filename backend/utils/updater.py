@@ -8,7 +8,6 @@ from utils.processing import fn_get_chroma_client
 TARGET_WEBSITE_URL = "https://krytter.com/"
 TIMESTAMP_FILE = "data/last_wp_update.txt"
 
-# This tricks WordPress into thinking we are a normal Google Chrome browser
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
 }
@@ -34,7 +33,6 @@ def background_refresh_knowledge_base():
 
         document_chunks = process_all_documents(raw_data)
         
-        # 1. Get current store and delete
         vector_store = fn_get_chroma_client()
         try:
             vector_store.delete_collection()
@@ -42,7 +40,6 @@ def background_refresh_knowledge_base():
         except Exception as e:
             print(f"-> Note: Could not delete (might not exist): {e}")
         
-        # 2. IMPORTANT: Force a fresh initialization of the collection
         print("-> Re-initializing and saving new data...")
         fresh_vector_store = fn_get_chroma_client(force_new=True)
         fresh_vector_store.add_documents(document_chunks)
@@ -60,7 +57,6 @@ def check_for_website_updates():
         api_url = f"{TARGET_WEBSITE_URL.rstrip('/')}/wp-json/wp/v2/pages?orderby=modified&order=desc&per_page=1"
         print(f"-> Asking WordPress API: {api_url}")
         
-        # Added the HEADERS here to bypass security blockers!
         response = requests.get(api_url, headers=HEADERS, timeout=10) 
         print(f"-> WordPress responded with Status Code: {response.status_code}")
         
